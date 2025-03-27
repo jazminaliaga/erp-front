@@ -1,4 +1,4 @@
-const apiUrl = "erp-back.railway.internal/api/productos";
+const apiUrl = "erp-back-production.up.railway.app/api/productos";
 
 // Función auxiliar para manejar las solicitudes HTTP
 async function handleRequest(url, method, body = null) {
