@@ -55,6 +55,7 @@ document.getElementById("productForm").addEventListener("submit", async function
 
 // Funciones CRUD
 async function createProduct(product) {
+    console.log(product);
     await handleRequest(apiUrl, "POST", product);
     await fetchProducts();
     document.getElementById("productForm").reset();
