@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:8081/api/productos";
+const apiUrl = "erp-back.railway.internal";
 
 // Función auxiliar para manejar las solicitudes HTTP
 async function handleRequest(url, method, body = null) {
