@@ -1,0 +1,88 @@
+/* general */
+body {
+    background-color: #f8f9fa; /* Fondo claro */
+}
+
+.container {
+    margin-top: 40px;
+}
+
+.navbar {
+    border-bottom: 1px solid #ddd; /* Línea debajo de la barra de navegación */
+}
+
+.navbar-nav .nav-item {
+    margin-left: 15px;
+}
+
+.navbar-nav .nav-item a {
+    color: white;
+}
+
+h1 {
+    color: #343a40; /* Título con color oscuro */
+}
+
+/* control y plantilla */
+.card {
+    margin: 1%;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.card h3 {
+    color: #343a40; /* Título en color oscuro */
+}
+
+.form-control {
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.d-flex {
+    margin-top: 20px;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    text-align: left;
+    padding: 12px;
+}
+
+.table th {
+    background-color: #343a40;
+    color: white;
+}
+
+.table td {
+    background-color: #ffffff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.form-label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: white;
+    border-radius: 8px;
+}
+
+.btn-dark:hover {
+    background-color: #5a6268;
+    border-color: #4e555b;
+}
