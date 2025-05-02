@@ -75,6 +75,14 @@ h1 {
     font-size: 1rem;
 }
 
+.filter-select {
+    border: none;
+    background: none;
+    font-size: 12px;
+    cursor: pointer;
+    color: #f2f2f2;
+}  
+
 .btn-dark {
     background-color: #343a40;
     border-color: #343a40;
