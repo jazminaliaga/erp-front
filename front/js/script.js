@@ -1,4 +1,5 @@
-const apiUrl = "https://erp-back-production.up.railway.app/api/productos";
+const apiUrl = "https://erp-back-production.up.railway.app/api/productos"; 
+let allProducts = [];
 
 // Función auxiliar para manejar las solicitudes HTTP
 async function handleRequest(url, method, body = null) {
@@ -55,7 +56,6 @@ document.getElementById("productForm").addEventListener("submit", async function
 
 // Funciones CRUD
 async function createProduct(product) {
-    console.log(product);
     await handleRequest(apiUrl, "POST", product);
     await fetchProducts();
     document.getElementById("productForm").reset();
@@ -64,12 +64,49 @@ async function createProduct(product) {
 async function fetchProducts() {
     try {
         const products = await handleRequest(apiUrl, "GET");
+        allProducts = products;
         renderProductTable(products);
+        populateHeaderFilters(); // Agregado para poblar los filtros en los headers
     } catch (error) {
         console.error("Error al cargar productos:", error);
     }
 }
 
+// Filtro dinámico (selects en encabezados)
+function populateHeaderFilters() {
+    const nombreSelect = document.getElementById("filterNombre");
+    const marcaSelect = document.getElementById("filterMarca");
+
+    const nombres = [...new Set(allProducts.map(p => p.nombre))];
+    const marcas = [...new Set(allProducts.map(p => p.marca))];
+
+    nombreSelect.innerHTML = '<option value="">▼</option>';
+    marcaSelect.innerHTML = '<option value="">▼</option>';
+
+    nombres.forEach(nombre => {
+        const option = document.createElement("option");
+        option.value = nombre;
+        option.textContent = nombre;
+        nombreSelect.appendChild(option);
+    });
+
+    marcas.forEach(marca => {
+        const option = document.createElement("option");
+        option.value = marca;
+        option.textContent = marca;
+        marcaSelect.appendChild(option);
+    });
+}
+
+function filterByColumn(type, value) {
+    const filtered = allProducts.filter(product => {
+        if (!value) return true;
+        return product[type] === value;
+    });
+    renderProductTable(filtered);
+}
+
+// Tabla de productos
 function renderProductTable(products) {
     const tableBody = document.getElementById("productTable");
     tableBody.innerHTML = products.map(product => `
@@ -88,6 +125,7 @@ function renderProductTable(products) {
     `).join("");
 }
 
+// Actualizar producto
 async function updateProduct(id, product) {
     await handleRequest(`${apiUrl}/${id}`, "PUT", product);
     await fetchProducts();
@@ -95,6 +133,7 @@ async function updateProduct(id, product) {
     document.getElementById("productId").value = "";
 }
 
+// Cargar datos en el formulario
 async function editProduct(id) {
     try {
         const product = await handleRequest(`${apiUrl}/${id}`, "GET");
@@ -109,6 +148,7 @@ async function editProduct(id) {
     }
 }
 
+// Confirmar eliminación
 async function confirmDelete(id) {
     if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
         try {
@@ -121,4 +161,6 @@ async function confirmDelete(id) {
 }
 
 // Inicialización
-document.addEventListener("DOMContentLoaded", fetchProducts);
+document.addEventListener("DOMContentLoaded", () => {
+    fetchProducts();
+});
