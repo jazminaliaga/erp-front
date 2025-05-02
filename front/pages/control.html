@@ -72,9 +72,17 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
+                        <th>
+                            Nombre
+                            <select id="filterNombre" onchange="filterByColumn('nombre', this.value)" class="filter-select">
+                            </select>
+                          </th>
+                          <th>
+                            Marca
+                            <select id="filterMarca" onchange="filterByColumn('marca', this.value)" class="filter-select">
+                            </select>
+                          </th>
                         <th>Cantidad</th>
-                        <th>Marca</th>
                         <th>Descripción</th>
                         <th>Precio</th>
                         <th>Acciones</th>
