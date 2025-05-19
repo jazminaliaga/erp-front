@@ -1,4 +1,4 @@
-const apiUrl = "https://erp-back-production.up.railway.app/api/productos"; 
+const apiUrl = "https://erp-back-4xag.onrender.com";
 let allProducts = [];
 
 // Función auxiliar para manejar las solicitudes HTTP
