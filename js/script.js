@@ -1,4 +1,4 @@
-const apiUrl = "https://erp-back-4xag.onrender.com";
+const apiUrl = "https://erp-back-4xag.onrender.com/api/productos";
 let allProducts = [];
 
 // Función auxiliar para manejar las solicitudes HTTP
