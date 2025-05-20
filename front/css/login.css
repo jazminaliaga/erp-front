@@ -1,0 +1,21 @@
+body {
+    background-color: #f8f9fa; /* Fondo claro */
+    color: white;
+}
+#intro {
+    color: #000000; /* Texto negro */
+    font-family: 'Arial', sans-serif; /* Fuente opcional */
+    text-align: center; /* Centrar el texto */
+    margin-top: 2rem; /* Espaciado superior (ajustable) */
+}
+
+#intro h1 {
+    font-size: 2.5rem; /* Tamaño del título */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+#intro p {
+    font-size: 1.2rem; /* Tamaño del párrafo */
+    opacity: 0.9; /* Ligera transparencia opcional */
+}
